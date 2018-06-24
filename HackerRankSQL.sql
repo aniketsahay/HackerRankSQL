@@ -73,5 +73,35 @@ FROM STATION
 
 
 
---
---
+-- The Report
+--https://www.hackerrank.com/challenges/the-report/problem
+
+
+SELECT CASE WHEN GRADE < 8 THEN NULL ELSE NAME END AS NAME,
+GRADE,
+MARKS
+FROM 
+(
+SELECT ID,NAME,MARKS, GRADE
+FROM students
+INNER JOIN grades
+ON students.marks between min_mark and max_mark
+) a
+ORDER BY grade DESC,name ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
